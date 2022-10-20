@@ -1,3 +1,5 @@
+package Objects;
+
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
@@ -32,7 +34,7 @@ public class Fly extends Insect {
         this.sizeZ = Math.min(Math.max(sizeZ, 0), 5);
     }
 
-    // field contains the value of fly's energy (value from 0 to 100)
+    // the value of fly's energy (from 0 to 100)
     private double energyPoints;
 
     @Override
@@ -40,7 +42,7 @@ public class Fly extends Insect {
         this.energyPoints = Math.min(Math.max(energyPoints, 0), 100);
     }
 
-    // field contains the value of buzzing volume (from 1 to 5)
+    // the value of buzzing volume (from 1 to 5)
     private int buzzingVolume;
 
     public int getBuzzingVolume() {
@@ -48,7 +50,7 @@ public class Fly extends Insect {
     }
 
     public void setBuzzingVolume(int buzzingVolume) {
-        this.buzzingVolume = buzzingVolume;
+        this.buzzingVolume = Math.min(Math.max(buzzingVolume, 0), 5);
     }
 
     private boolean checkEnergyPoints() {
@@ -74,7 +76,7 @@ public class Fly extends Insect {
     @Override
     public void fly() {
         if (checkEnergyPoints()) {
-            System.out.println("Fly is flying! Bzz Bzz Bzz");
+            System.out.println("Objects.Fly is flying! Bzz Bzz Bzz");
         } else {
             System.out.println("No energy to fly :(");
         }

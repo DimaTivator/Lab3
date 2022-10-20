@@ -1,3 +1,5 @@
+package Objects;
+
 public abstract class Insect {
 
     // field contains the value of fly's energy (value from 0 to 100)
@@ -11,7 +13,7 @@ public abstract class Insect {
         this.energyPoints = energyPoints;
     }
 
-    // sizes of fly in 3 dimensions: x, y, z (values from 1 to 10 millimetres)
+    // sizes of fly in 3 dimensions: x, y, z
     private double sizeX;
     private double sizeY;
     private double sizeZ;
