@@ -1,11 +1,21 @@
-package Objects;
+package mummiValeObjects;
+
+import enums.Type;
 
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
+        System.out.println("Муха создана");
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.sizeZ = sizeZ;
+        type = Type.OBJECT;
+    }
+
+    private final Type type;
+
+    public Type getType() {
+        return type;
     }
 
     // sizes of fly in 3 dimensions: x, y, z (values from 1 to 5 millimetres)
@@ -13,12 +23,6 @@ public class Fly extends Insect {
     private double sizeY;
     private double sizeZ;
 
-    /**
-     * setters setSize always set value in [0, 5].
-     * If the argument is greater than 5, setter will set 5.
-     * If the argument is lower than 0, setter will set 0.
-     * If the other cases setter will set the right value.
-     */
     @Override
     public void setSizeX(double sizeX) {
         this.sizeX = Math.min(Math.max(sizeX, 0), 5);
@@ -57,10 +61,6 @@ public class Fly extends Insect {
         return energyPoints > 50;
     }
 
-    /**
-     * The ability to fly and buzz in methods makeSound and fly depends on the value of energyPoints.
-     * If it is greater than 50, we suppose that fly is able to buzz and fly.
-     */
     @Override
     public void makeSound() {
         if (checkEnergyPoints()) {
@@ -69,16 +69,16 @@ public class Fly extends Insect {
             }
             System.out.println();
         } else {
-            System.out.println("No energy to buzz :(");
+            System.out.println("У мухи нет сил жужжать :(");
         }
     }
 
     @Override
     public void fly() {
         if (checkEnergyPoints()) {
-            System.out.println("Objects.Fly is flying! Bzz Bzz Bzz");
+            System.out.println("Муха летает! Bzz Bzz Bzz");
         } else {
-            System.out.println("No energy to fly :(");
+            System.out.println("У мухи нет сил летать :(");
         }
     }
 

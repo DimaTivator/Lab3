@@ -1,8 +1,8 @@
-package Objects;
+package mummiValeObjects;
 
-public abstract class Insect {
+public abstract class Insect extends MummiValeObject {
 
-    // field contains the value of fly's energy (value from 0 to 100)
+    // the value of fly's energy (from 0 to 100)
     private double energyPoints;
 
     public double getEnergyPoints() {

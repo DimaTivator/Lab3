@@ -1,12 +1,22 @@
-package MummiValeObjects;
+package mummiValeObjects;
 
+import abilities.AbleToBeLiquid;
 import enums.RiverColour;
+import enums.Type;
 
-public class River {
+public class River extends MummiValeObject implements AbleToBeLiquid {
 
     public River(double waterLevel) {
         this.waterLevel = waterLevel;
         System.out.printf("Создана речка с уровнем воды %.2f(м)", waterLevel);
+
+        type = Type.OBJECT;
+    }
+
+    private final Type type;
+
+    public Type getType() {
+        return type;
     }
 
     private RiverColour riverColour;
@@ -27,6 +37,7 @@ public class River {
      * If shift is negative, the water level decreases or becomes 0.
      * Also, void checks whether the river has become shallow.
      */
+    @Override
     public void changeWaterLevel(double shift) {
         if (waterLevel + shift > 0) {
             waterLevel += shift;
@@ -49,11 +60,22 @@ public class River {
         return waterLevel > 1;
     }
 
+    @Override
     public void flow() {
         if (isShallow()) {
             System.out.println("Речка течет");
         } else {
             System.out.println("Речка еле струится");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
