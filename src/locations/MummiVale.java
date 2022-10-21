@@ -12,8 +12,14 @@ public class MummiVale extends Location{
         System.out.println("Мумми-Дол создана");
     }
 
+    public MummiVale(Month month, Weather weather) {
+        this.month = month;
+        this.weather = weather;
+        System.out.printf("Мумми-Дол создана. Месяц: %s, погода: %s\n", month.getTranslation(), weather.getTranslation());
+    }
+
     // current weather
-    private Weather weather;
+    private Weather weather = Weather.WARM;
 
     public void setWeather(Weather weather) {
         this.weather = weather;
@@ -24,7 +30,7 @@ public class MummiVale extends Location{
     }
 
     // current month
-    private Month month;
+    private Month month = Month.MAY;
 
     public Month getMonth() {
         return month;
@@ -32,28 +38,6 @@ public class MummiVale extends Location{
 
     public void setMonth(Month month) {
         this.month = month;
-    }
-
-
-    private ArrayList<Location> locations = new ArrayList<>();
-
-    public void addLocation(Location location) {
-        locations.add(location);
-    }
-
-    public ArrayList<Location> getLocations() {
-        return locations;
-    }
-
-
-    private ArrayList<MummiValeObject> mummiValeObjects = new ArrayList<>();
-
-    public void addMummiValeObject(MummiValeObject object) {
-        mummiValeObjects.add(object);
-    }
-
-    public ArrayList<MummiValeObject> getMummiValeObjects() {
-        return mummiValeObjects;
     }
 
 
