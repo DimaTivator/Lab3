@@ -5,14 +5,26 @@ import abilities.AbleToMakeJuice;
 
 public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, AbleToBePardoned {
 
+    private boolean isPardoned = false;
+
     @Override
     public void makeJuice(Water water) {
-        water.becomeJuice();
+        if (isPardoned) {
+            water.becomeJuice();
+        } else {
+            System.out.println("Не помилованная шляпа не может превратить воду в сок :(");
+        }
     }
 
     @Override
-    public void checkPardon() {
-        System.out.printf("Шляпа волшебника %s помилована", (Math.random() > 0.2 ? "" : "не"));
+    public boolean checkPardon() {
+        return isPardoned;
+    }
+
+    @Override
+    public void makePardoned() {
+        isPardoned = true;
+        System.out.println("Шляпа волшебника %s помилована");
     }
 
     @Override
