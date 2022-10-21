@@ -1,6 +1,6 @@
 package enums;
 
-public enum RiverColour {
+public enum WaterColour {
     GREY("серая"),
     BLUE("голубая"),
     GREEN("зеленая"),
@@ -8,7 +8,7 @@ public enum RiverColour {
 
     private final String translation;
 
-    RiverColour(String translation) {
+    WaterColour(String translation) {
         this.translation = translation;
     }
 
