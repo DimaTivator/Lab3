@@ -1,14 +1,11 @@
 package locations;
 
-import abilities.AbleToBecomeJungle;
-
-public class MummiHouse extends Location implements AbleToBecomeJungle {
+public class MummiHouse extends Location {
 
     public MummiHouse() {
         System.out.println("Мумми-дом создан");
     }
 
-    @Override
     public void becomeJungle() {
         System.out.println("Мумми-дом превратился в джунгли");
     }
