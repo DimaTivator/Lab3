@@ -33,4 +33,9 @@ public class Meadow extends Location implements AbleToFeelWeather {
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.format("Луг@%d", hashCode());
+    }
 }

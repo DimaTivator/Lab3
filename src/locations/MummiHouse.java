@@ -22,4 +22,9 @@ public class MummiHouse extends Location implements AbleToBecomeJungle {
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.format("Мумми-дом@%d", hashCode());
+    }
 }

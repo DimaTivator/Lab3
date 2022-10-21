@@ -24,4 +24,9 @@ public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, Able
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.format("Шляпа волшебника@%d", hashCode());
+    }
 }

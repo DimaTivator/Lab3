@@ -2,11 +2,8 @@ package locations;
 
 import enums.Month;
 import enums.Weather;
-import mummiValeObjects.MummiValeObject;
 
-import java.util.ArrayList;
-
-public class MummiVale extends Location{
+public class MummiVale extends Location {
 
     public MummiVale() {
         System.out.println("Мумми-Дол создана");
@@ -49,5 +46,10 @@ public class MummiVale extends Location{
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Мумми-Дол@%d. Месяц: %s. Погода: %s", hashCode(), month.getTranslation(), weather.getTranslation());
     }
 }

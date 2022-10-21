@@ -39,7 +39,7 @@ public class Fly extends Insect {
     }
 
     // the value of fly's energy (from 0 to 100)
-    private double energyPoints;
+    private double energyPoints = 50;
 
     @Override
     public void setEnergyPoints(double energyPoints) {
@@ -47,7 +47,7 @@ public class Fly extends Insect {
     }
 
     // the value of buzzing volume (from 1 to 5)
-    private int buzzingVolume;
+    private int buzzingVolume = 3;
 
     public int getBuzzingVolume() {
         return buzzingVolume;
@@ -94,5 +94,10 @@ public class Fly extends Insect {
     @Override
     public int hashCode() {
         return ((int) (sizeX * 17667049) % 3797191) * ((int) (sizeY * 17667049) % 3797191) * ((int) (sizeZ * 17667049) % 3797191);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Муха@%d. Энергия: %.2f", hashCode(), energyPoints);
     }
 }

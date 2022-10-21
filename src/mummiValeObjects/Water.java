@@ -33,7 +33,7 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
     }
 
 
-    private WaterColour waterColour;
+    private WaterColour waterColour = WaterColour.TRANSPARENT;
 
     public void setWaterColour(WaterColour waterColour) {
         this.waterColour = waterColour;
@@ -67,5 +67,10 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
     @Override
     public int hashCode() {
         return Objects.hash(waterLevel, waterColour);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Вода@%d. Цвет: %s", hashCode(), waterColour.getTranslation());
     }
 }

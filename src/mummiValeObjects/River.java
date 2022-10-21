@@ -41,15 +41,15 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
     }
 
     private boolean isShallow() {
-        return waterLevel > 1;
+        return waterLevel < 1;
     }
 
     @Override
     public void flow() {
         if (isShallow()) {
-            System.out.println("Речка течет");
-        } else {
             System.out.println("Речка еле струится");
+        } else {
+            System.out.println("Речка течет");
         }
     }
 
@@ -62,5 +62,10 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s@%d", (isShallow() ? "Река" : "Обмелевшая река"), hashCode());
     }
 }

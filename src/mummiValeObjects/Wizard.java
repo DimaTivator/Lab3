@@ -25,4 +25,9 @@ public class Wizard extends MummiValeObject implements AbleToMakeJuice {
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.format("Волшебник@%d", hashCode());
+    }
 }
