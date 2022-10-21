@@ -93,7 +93,7 @@ public class Fly extends Insect {
 
     @Override
     public int hashCode() {
-        return ((int) (sizeX * 17667049) % 3797191) * ((int) (sizeY * 17667049) % 3797191) * ((int) (sizeZ * 17667049) % 3797191);
+        return ((int) (sizeX * 17667049) % 3797191 % 8923) * ((int) (sizeY * 17667049) % 3797191 % 8923) * ((int) (sizeZ * 17667049) % 3797191 % 8923);
     }
 
     @Override
