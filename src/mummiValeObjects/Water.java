@@ -50,7 +50,8 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
     @Override
     public void becomeJuice() {
         if (ableToBecomeJuice) {
-            System.out.println("Магия! Вода превратилась в сок!");
+            waterColour = WaterColour.ORANGE;
+            System.out.println("Магия! Вода превратилась в апельсиновый сок!");
         } else {
             System.out.println("От невыносимой жары вода не может превратиться в сок :(");
         }
