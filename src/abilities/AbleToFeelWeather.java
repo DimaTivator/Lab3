@@ -1,7 +1,6 @@
 package abilities;
 
 import enums.Weather;
-import locations.MummiVale;
 
 public interface AbleToFeelWeather {
 
