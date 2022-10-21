@@ -3,7 +3,6 @@ package mummiValeObjects;
 import abilities.AbleToFeelWeather;
 import enums.Type;
 import enums.Weather;
-import locations.MummiVale;
 
 public class Tree extends MummiValeObject implements AbleToFeelWeather {
 
