@@ -1,49 +1,33 @@
 package mummiValeObjects;
 
 import abilities.AbleToBeLiquid;
-import enums.RiverColour;
-import enums.Type;
+import enums.WaterColour;
 
 public class River extends MummiValeObject implements AbleToBeLiquid {
 
+    Water water = new Water();
+
     public River(double waterLevel) {
-        this.waterLevel = waterLevel;
+        water.changeWaterLevel(waterLevel);
         System.out.printf("Создана речка с уровнем воды %.2f(м)", waterLevel);
-
-        type = Type.OBJECT;
     }
 
-    private final Type type;
+    private WaterColour waterColour;
 
-    public Type getType() {
-        return type;
+    public void setRiverColour(WaterColour waterColour) {
+        water.setWaterColour(waterColour);
     }
 
-    private RiverColour riverColour;
-
-    public void setRiverColour(RiverColour riverColour) {
-        this.riverColour = riverColour;
+    public WaterColour getWaterColour() {
+        return waterColour;
     }
 
-    public RiverColour getRiverColour() {
-        return riverColour;
-    }
 
     private double waterLevel;
 
-    /**
-     * Void changes the water level.
-     * If shift is positive, the water level increases.
-     * If shift is negative, the water level decreases or becomes 0.
-     * Also, void checks whether the river has become shallow.
-     */
     @Override
     public void changeWaterLevel(double shift) {
-        if (waterLevel + shift > 0) {
-            waterLevel += shift;
-        } else {
-            waterLevel = 0;
-        }
+        water.changeWaterLevel(shift);
 
         if (isShallow()) {
             System.out.println("Речка обмелела :(");
@@ -68,6 +52,7 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
             System.out.println("Речка еле струится");
         }
     }
+
 
     @Override
     public boolean equals(Object obj) {
