@@ -8,13 +8,6 @@ public class Tree extends MummiValeObject implements AbleToFeelWeather {
 
     public Tree() {
         System.out.println("Деревья созданы");
-        type = Type.OBJECT;
-    }
-
-    private final Type type;
-
-    public Type getType() {
-        return type;
     }
 
     /**
