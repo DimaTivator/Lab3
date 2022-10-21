@@ -9,7 +9,7 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
 
     public River(double waterLevel) {
         water.changeWaterLevel(waterLevel);
-        System.out.printf("Создана речка с уровнем воды %.2f(м)", waterLevel);
+        System.out.printf("Создана речка с уровнем воды %.2f(м)\n", waterLevel);
     }
 
     private WaterColour waterColour;
