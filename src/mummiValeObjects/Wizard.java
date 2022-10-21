@@ -2,7 +2,7 @@ package mummiValeObjects;
 
 import abilities.AbleToMakeJuice;
 
-public class Wizard implements AbleToMakeJuice {
+public class Wizard extends MummiValeObject implements AbleToMakeJuice {
 
     private WizardsHat hat;
 
