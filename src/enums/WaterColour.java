@@ -4,6 +4,7 @@ public enum WaterColour {
     GREY("серая"),
     BLUE("голубая"),
     GREEN("зеленая"),
+    ORANGE("оранжевый"),
     TRANSPARENT("прозрачная");
 
     private final String translation;
