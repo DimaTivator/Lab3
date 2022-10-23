@@ -6,7 +6,7 @@ import enums.Weather;
 public class Tree extends MummiValeObject implements AbleToFeelWeather {
 
     public Tree() {
-        System.out.println("Деревья созданы");
+        System.out.println("Дерево создано");
     }
 
     /**
