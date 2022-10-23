@@ -10,7 +10,7 @@ public class Meadow extends Location implements AbleToFeelWeather {
     }
 
     @Override
-    public void checkStatus(Weather weather) {
+    public void printStatus(Weather weather) {
         switch (weather) {
             case EXTREMELY_HOT -> {
                 System.out.println("Луга жаждут");
@@ -24,14 +24,15 @@ public class Meadow extends Location implements AbleToFeelWeather {
         }
     }
 
+
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        return getClass() == obj.getClass();
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return "Луг".hashCode();
     }
 
     @Override

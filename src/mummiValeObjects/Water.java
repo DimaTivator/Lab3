@@ -43,9 +43,10 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
         return waterColour;
     }
 
-
     @Override
-    public void flow() {};
+    public void flow() {
+        System.out.println("Вода течет");
+    };
 
     @Override
     public void becomeJuice() {

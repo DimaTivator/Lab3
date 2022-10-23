@@ -14,7 +14,7 @@ public class Tree extends MummiValeObject implements AbleToFeelWeather {
      * Depending on the type of current weather void outputs the tree's status
      */
     @Override
-    public void checkStatus(Weather weather) {
+    public void printStatus(Weather weather) {
         switch (weather) {
             case EXTREMELY_HOT -> {
                 System.out.println("Деревья изнемогают от страшной жары :(");
