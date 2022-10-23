@@ -83,11 +83,10 @@ public class Fly extends Insect {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        // let the flies be equal if they have simple hash codes
-        Fly fly = (Fly) object;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Fly fly = (Fly) obj;
         return hashCode() == fly.hashCode();
     }
 
