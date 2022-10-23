@@ -2,7 +2,13 @@ package humans;
 
 public abstract class Human {
 
-    private String name;
+    private String name = "Абоба";
+
+    public Human(String name) {
+        this.name = name;
+    }
+
+    public Human() {};
 
     public void setName(String name) {
         this.name = name;
