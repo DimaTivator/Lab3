@@ -20,10 +20,6 @@ public abstract class Location {
         locations.add(location);
     }
 
-    public ArrayList<Location> getLocations() {
-        return locations;
-    }
-
     /**
      * removes from the list all objects that have simple the same class with the argument
      */
@@ -36,6 +32,10 @@ public abstract class Location {
                 i++;
             }
         }
+    }
+
+    public ArrayList<Location> getLocations() {
+        return locations;
     }
 
 
