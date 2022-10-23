@@ -62,4 +62,15 @@ public abstract class Location {
     public ArrayList<MummiValeObject> getMummiValeObjects() {
         return mummiValeObjects;
     }
+
+
+    private String name = "локация";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

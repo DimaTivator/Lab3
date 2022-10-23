@@ -5,23 +5,21 @@ import enums.Weather;
 
 public class Vale extends Location {
 
-    private String name = "долина";
-
     public Vale(String name) {
-        this.name = name;
+        setName(name);
         System.out.printf("%s создана\n", name);
         printInfo();
     }
 
     public Vale() {
-        System.out.printf("%s создана\n", name);
+        System.out.printf("%s создана\n", getName());
         printInfo();
     }
 
     public Vale(String name, Month month, Weather weather) {
         this.month = month;
         this.weather = weather;
-        this.name = name;
+        setName(name);
         System.out.printf("%s создана.\n", name);
         printInfo();
     }
@@ -59,16 +57,16 @@ public class Vale extends Location {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        return name.equals(((Vale) obj).name);
+        return getName().equals(((Vale) obj).getName());
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return getName().hashCode();
     }
 
     @Override
     public String toString() {
-        return name;
+        return getName();
     }
 }
