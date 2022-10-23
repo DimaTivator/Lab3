@@ -98,6 +98,6 @@ public class Fly extends Insect {
 
     @Override
     public String toString() {
-        return String.format("Муха@%d. Энергия: %.2f", hashCode(), energyPoints);
+        return "Муха";
     }
 }

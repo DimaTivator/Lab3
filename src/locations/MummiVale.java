@@ -50,6 +50,6 @@ public class MummiVale extends Location {
 
     @Override
     public String toString() {
-        return String.format("Мумми-Дол@%d. Месяц: %s. Погода: %s", hashCode(), month.getTranslation(), weather.getTranslation());
+        return "Мумми-Дол";
     }
 }

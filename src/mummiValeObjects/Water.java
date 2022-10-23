@@ -72,6 +72,6 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
 
     @Override
     public String toString() {
-        return String.format("Вода@%d. Цвет: %s", hashCode(), waterColour.getTranslation());
+        return "Вода";
     }
 }

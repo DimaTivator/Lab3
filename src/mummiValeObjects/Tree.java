@@ -40,6 +40,6 @@ public class Tree extends MummiValeObject implements AbleToFeelWeather {
 
     @Override
     public String toString() {
-        return String.format("Дерево@%d", hashCode());
+        return "Дерево";
     }
 }

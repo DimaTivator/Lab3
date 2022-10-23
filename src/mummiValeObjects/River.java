@@ -66,6 +66,6 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
 
     @Override
     public String toString() {
-        return String.format("%s@%d", (isShallow() ? "Река" : "Обмелевшая река"), hashCode());
+        return String.format("%s", (isShallow() ? "Река" : "Обмелевшая река"));
     }
 }

@@ -22,6 +22,6 @@ public class MummiHouse extends Location {
 
     @Override
     public String toString() {
-        return String.format("Мумми-дом@%d", hashCode());
+        return "Мумми-дом";
     }
 }
