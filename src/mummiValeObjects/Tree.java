@@ -1,7 +1,6 @@
 package mummiValeObjects;
 
 import abilities.AbleToFeelWeather;
-import enums.Type;
 import enums.Weather;
 
 public class Tree extends MummiValeObject implements AbleToFeelWeather {
@@ -28,18 +27,19 @@ public class Tree extends MummiValeObject implements AbleToFeelWeather {
         }
     }
 
+    // let all trees be equal to each other
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        return getClass() == obj.getClass();
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return toString().hashCode();
     }
 
     @Override
     public String toString() {
-        return "Дерево";
+        return "дерево";
     }
 }

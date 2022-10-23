@@ -56,7 +56,10 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        River river = (River) obj;
+        return water.equals(river.water) && toString().equals(river.toString());
     }
 
     @Override

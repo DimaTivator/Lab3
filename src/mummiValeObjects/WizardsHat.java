@@ -29,12 +29,15 @@ public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, Able
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        WizardsHat hat = (WizardsHat) obj;
+        return hashCode() == hat.hashCode();
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return (toString() + (isPardoned ? '1' : '0')).hashCode();
     }
 
     @Override
