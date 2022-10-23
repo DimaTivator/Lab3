@@ -1,49 +1,36 @@
 package mummiValeObjects;
 
-import enums.Type;
-
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
         System.out.println("Муха создана");
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
-        this.sizeZ = sizeZ;
-        type = Type.OBJECT;
+        setSizeX(sizeX);
+        setSizeY(sizeY);
+        setSizeZ(sizeZ);
     }
 
-    private final Type type;
-
-    public Type getType() {
-        return type;
+    public Fly() {
+        System.out.println("Муха со стандартными размерами создана");
     }
-
-    // sizes of fly in 3 dimensions: x, y, z (values from 1 to 5 millimetres)
-    private double sizeX;
-    private double sizeY;
-    private double sizeZ;
 
     @Override
     public void setSizeX(double sizeX) {
-        this.sizeX = Math.min(Math.max(sizeX, 0), 5);
+        super.setSizeX(Math.min(Math.max(sizeX, 0), 5));
     }
 
     @Override
     public void setSizeY(double sizeY) {
-        this.sizeY = Math.min(Math.max(sizeY, 0), 5);
+        super.setSizeY(Math.min(Math.max(sizeY, 0), 5));
     }
 
     @Override
     public void setSizeZ(double sizeZ) {
-        this.sizeZ = Math.min(Math.max(sizeZ, 0), 5);
+        super.setSizeZ(Math.min(Math.max(sizeZ, 0), 5));
     }
-
-    // the value of fly's energy (from 0 to 100)
-    private double energyPoints = 50;
 
     @Override
     public void setEnergyPoints(double energyPoints) {
-        this.energyPoints = Math.min(Math.max(energyPoints, 0), 100);
+        super.setEnergyPoints(Math.min(Math.max(energyPoints, 0), 100));
     }
 
     // the value of buzzing volume (from 1 to 5)
@@ -58,7 +45,7 @@ public class Fly extends Insect {
     }
 
     private boolean checkEnergyPoints() {
-        return energyPoints > 50;
+        return getEnergyPoints() > 50;
     }
 
     @Override
@@ -92,7 +79,7 @@ public class Fly extends Insect {
 
     @Override
     public int hashCode() {
-        return ((int) (sizeX * 17667049) % 3797191 % 8923) * ((int) (sizeY * 17667049) % 3797191 % 8923) * ((int) (sizeZ * 17667049) % 3797191 % 8923);
+        return ((int) (getSizeX() * 17667049) % 3797191 % 8923) * ((int) (getSizeY() * 17667049) % 3797191 % 8923) * ((int) (getSizeZ() * 17667049) % 3797191 % 8923);
     }
 
     @Override

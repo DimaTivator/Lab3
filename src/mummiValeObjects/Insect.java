@@ -3,7 +3,7 @@ package mummiValeObjects;
 public abstract class Insect extends MummiValeObject {
 
     // the value of fly's energy (from 0 to 100)
-    private double energyPoints;
+    private double energyPoints = 50;
 
     public double getEnergyPoints() {
         return energyPoints;
@@ -14,9 +14,9 @@ public abstract class Insect extends MummiValeObject {
     }
 
     // sizes of fly in 3 dimensions: x, y, z
-    private double sizeX;
-    private double sizeY;
-    private double sizeZ;
+    private double sizeX = 1;
+    private double sizeY = 1;
+    private double sizeZ = 1;
 
     public double getSizeX() {
         return sizeX;
