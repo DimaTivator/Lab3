@@ -4,5 +4,5 @@ public interface AbleToBeLiquid {
 
     void changeWaterLevel(double shift);
 
-    void flow();
+    String flow();
 }
