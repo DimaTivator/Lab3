@@ -6,12 +6,18 @@ import mummiValeObjects.WizardsHat;
 
 public class Wizard extends Human implements AbleToMakeJuice {
 
-    private WizardsHat hat;
+    public WizardsHat hat;
 
     public Wizard(String name, WizardsHat hat) {
         this.hat = hat;
         setName(name);
+        hat.setOwner(this);
         System.out.printf("Волшебник %s с шляпой создан\n", name);
+    }
+
+    public Wizard(String name) {
+        setName(name);
+        System.out.printf("Волшебник %s создан\n", name);
     }
 
     public void setHat(WizardsHat hat) {
