@@ -44,8 +44,8 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
     }
 
     @Override
-    public void flow() {
-        System.out.println("Вода течет");
+    public String flow() {
+        return "Вода течет";
     };
 
     @Override
