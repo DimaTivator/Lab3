@@ -7,7 +7,7 @@ import mummiValeObjects.*;
 
 public class Story {
     public void go() {
-        Location mummiVale = new Vale("Мумми-Дол", Month.JULY, Weather.EXTREMELY_HOT);
+        Vale mummiVale = new Vale("Мумми-Дол", Month.JULY, Weather.EXTREMELY_HOT);
         System.out.println();
 
         Fly fly = new Fly(1, 2, 1);
@@ -16,13 +16,16 @@ public class Story {
         fly.fly();
         System.out.println();
 
-        Location meadow = new Meadow();
         House mummiHouse = new House("Мумми-Дом");
+        Meadow meadow = new Meadow();
+        meadow.printStatus(mummiVale.getWeather());
+
         Tree tree = new Tree();
+        tree.printStatus(mummiVale.getWeather());
+
         River river = new River(0.5);
 
         river.water.setWaterColour(WaterColour.GREY);
-
 
         meadow.addMummiValeObject(tree);
         meadow.addMummiValeObject(river);
