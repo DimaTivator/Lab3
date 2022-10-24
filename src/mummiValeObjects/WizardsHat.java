@@ -2,10 +2,13 @@ package mummiValeObjects;
 
 import abilities.AbleToBePardoned;
 import abilities.AbleToMakeJuice;
+import humans.Human;
+import humans.Wizard;
 
-public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, AbleToBePardoned {
+public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned {
 
     private boolean isPardoned = false;
+
 
     @Override
     public void makeJuice(Water water) {
@@ -17,6 +20,15 @@ public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, Able
     }
 
     @Override
+    public void setOwner(Human owner) {
+        if (owner instanceof Wizard) {
+            super.setOwner(owner);
+        } else {
+            System.out.println("Владельцем волшебной шляпы может быть только волшебник!");
+        }
+    }
+
+    @Override
     public boolean checkPardon() {
         return isPardoned;
     }
@@ -24,7 +36,7 @@ public class WizardsHat extends MummiValeObject implements AbleToMakeJuice, Able
     @Override
     public void makePardoned() {
         isPardoned = true;
-        System.out.println("Шляпа волшебника %s помилована");
+        System.out.printf("Шляпа волшебника %s помилована\n", getOwner().getName());
     }
 
     @Override
