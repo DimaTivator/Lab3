@@ -5,21 +5,11 @@ import enums.WaterColour;
 
 public class River extends MummiValeObject implements AbleToBeLiquid {
 
-    Water water = new Water();
+    public Water water = new Water();
 
     public River(double waterLevel) {
         water.changeWaterLevel(waterLevel);
         System.out.printf("Создана речка с уровнем воды %.2f(м)\n", waterLevel);
-    }
-
-    private WaterColour waterColour;
-
-    public void setRiverColour(WaterColour waterColour) {
-        water.setWaterColour(waterColour);
-    }
-
-    public WaterColour getWaterColour() {
-        return waterColour;
     }
 
 
@@ -45,11 +35,11 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
     }
 
     @Override
-    public void flow() {
+    public String flow() {
         if (isShallow()) {
-            System.out.println("Речка еле струится");
+            return this + " еле струится";
         } else {
-            System.out.println("Речка течет");
+            return this + " течет";
         }
     }
 
@@ -69,6 +59,10 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
 
     @Override
     public String toString() {
-        return String.format("%s", (isShallow() ? "Река" : "Обмелевшая река"));
+        if (isShallow()) {
+            return "обмелевшая " + water.getWaterColour().getTranslation() + " река";
+        } else {
+            return water.getWaterColour().getTranslation() + " река";
+        }
     }
 }
