@@ -20,7 +20,7 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
     private double waterLevel = 0;
 
     @Override
-    public void changeWaterLevel(double shift) {
+    public void changeLevel(double shift) {
         if (waterLevel + shift > 0) {
             waterLevel += shift;
         } else {
