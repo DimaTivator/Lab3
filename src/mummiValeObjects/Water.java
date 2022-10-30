@@ -7,18 +7,23 @@ import enums.Weather;
 
 import java.util.Objects;
 
-public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBecomeJuice {
+public class Water extends ValeObject implements AbleToBeLiquid, AbleToBecomeJuice {
 
     private boolean ableToBecomeJuice = false;
 
     public Water(Weather weather) {
-        ableToBecomeJuice = !weather.equals(Weather.EXTREMELY_HOT);
+        changeStatus(weather);
     }
 
     public Water() {};
 
     private double waterLevel = 0;
 
+    /**
+     * Method changes level of water.
+     * If shift is > 0, then water level increases.
+     * In the other case it decreases, but can't be < 0;
+     */
     @Override
     public void changeLevel(double shift) {
         if (waterLevel + shift > 0) {
@@ -43,11 +48,39 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
         return waterColour;
     }
 
+
+    private double flowingSpeed = 0;
+
+    public double getFlowingSpeed() {
+        return flowingSpeed;
+    }
+
+    /**
+     * Sets flowing speed only if it is positive
+     */
+    public void setFlowingSpeed(double flowingSpeed) {
+        if (flowingSpeed > 0) {
+            this.flowingSpeed = flowingSpeed;
+            flow();
+        }
+    }
+
+    /**
+     * River can't flow if flowingSpeed is equals to 0.
+     * If method flow is called and flowingSpeed == 0, flowingSpeed will become 1 meter per second
+     */
     @Override
-    public String flow() {
-        return "Вода течет";
+    public void flow() {
+        if (flowingSpeed == 0) {
+            flowingSpeed = 1;
+        }
+        System.out.printf("Вода течет со скоростью %.2f м/с", flowingSpeed);
     };
 
+    /**
+     * If weather is auspicious, water is able to become juice.
+     * In the other case, you need to change weather before calling this method
+     */
     @Override
     public void becomeJuice() {
         if (ableToBecomeJuice) {
@@ -57,6 +90,13 @@ public class Water extends MummiValeObject implements AbleToBeLiquid, AbleToBeco
             System.out.println("От невыносимой жары вода не может превратиться в сок :(");
         }
     }
+
+
+    public void changeStatus(Weather weather) {
+        // if the weather is extremely hot, water is not able to become juice
+        ableToBecomeJuice = !weather.equals(Weather.EXTREMELY_HOT);
+    }
+
 
     @Override
     public boolean equals(Object obj) {

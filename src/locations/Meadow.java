@@ -9,6 +9,10 @@ public class Meadow extends Location implements AbleToFeelWeather {
         System.out.println("Луг создан");
     }
 
+
+    /**
+     * Method prints status, that depends on the weather
+     */
     @Override
     public void printStatus(Weather weather) {
         switch (weather) {
@@ -25,6 +29,7 @@ public class Meadow extends Location implements AbleToFeelWeather {
     }
 
 
+    // let all meadows be equal to each other
     @Override
     public boolean equals(Object obj) {
         return getClass() == obj.getClass();

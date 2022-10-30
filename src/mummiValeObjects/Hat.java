@@ -2,10 +2,14 @@ package mummiValeObjects;
 
 import humans.Human;
 
-public abstract class Hat extends MummiValeObject {
+public abstract class Hat extends ValeObject {
 
     private Human owner;
 
+    /**
+     * Sets owner to the hat
+     * @param owner only Human
+     */
     public void setOwner(Human owner) {
         this.owner = owner;
     }

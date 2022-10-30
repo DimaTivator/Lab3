@@ -1,14 +1,13 @@
 package mummiValeObjects;
 
 import abilities.AbleToBeLiquid;
-import enums.WaterColour;
 
-public class River extends MummiValeObject implements AbleToBeLiquid {
+public class River extends ValeObject implements AbleToBeLiquid {
 
     public Water water = new Water();
 
     public River(double waterLevel) {
-        water.changeWaterLevel(waterLevel);
+        water.changeLevel(waterLevel);
         System.out.printf("Создана речка с уровнем воды %.2f(м)\n", waterLevel);
     }
 
@@ -16,8 +15,8 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
     private double waterLevel;
 
     @Override
-    public void changeWaterLevel(double shift) {
-        water.changeWaterLevel(shift);
+    public void changeLevel(double shift) {
+        water.changeLevel(shift);
 
         if (isShallow()) {
             System.out.println("Речка обмелела :(");
@@ -34,12 +33,15 @@ public class River extends MummiValeObject implements AbleToBeLiquid {
         return waterLevel < 1;
     }
 
+    /**
+     * The pace of river flowing depends on the water level.
+     */
     @Override
-    public String flow() {
+    public void flow() {
         if (isShallow()) {
-            return this + " еле струится";
+            System.out.println(this + " еле струится");
         } else {
-            return this + " течет";
+            System.out.println(this + " течет");
         }
     }
 

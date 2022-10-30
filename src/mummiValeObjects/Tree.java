@@ -3,7 +3,7 @@ package mummiValeObjects;
 import abilities.AbleToFeelWeather;
 import enums.Weather;
 
-public class Tree extends MummiValeObject implements AbleToFeelWeather {
+public class Tree extends ValeObject implements AbleToFeelWeather {
 
     public Tree() {
         System.out.println("Дерево создано");

@@ -9,7 +9,6 @@ public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned
 
     private boolean isPardoned = false;
 
-
     @Override
     public void makeJuice(Water water) {
         if (isPardoned) {
@@ -19,6 +18,9 @@ public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned
         }
     }
 
+    /**
+     * Method sets owner to a magic hat. The owner can be only a wizard
+     */
     @Override
     public void setOwner(Human owner) {
         if (owner instanceof Wizard) {

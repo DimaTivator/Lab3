@@ -1,6 +1,6 @@
 package mummiValeObjects;
 
-public abstract class Insect extends MummiValeObject {
+public abstract class Insect extends ValeObject {
 
     // the value of fly's energy (from 0 to 100)
     private double energyPoints = 50;

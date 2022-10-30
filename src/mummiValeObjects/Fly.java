@@ -3,15 +3,16 @@ package mummiValeObjects;
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
-        System.out.println("Муха создана");
         setSizeX(sizeX);
         setSizeY(sizeY);
         setSizeZ(sizeZ);
+        System.out.println("Муха создана");
     }
 
     public Fly() {
         System.out.println("Муха со стандартными размерами создана");
     }
+
 
     @Override
     public void setSizeX(double sizeX) {
@@ -33,6 +34,7 @@ public class Fly extends Insect {
         super.setEnergyPoints(Math.min(Math.max(energyPoints, 0), 100));
     }
 
+
     // the value of buzzing volume (from 1 to 5)
     private int buzzingVolume = 3;
 
@@ -48,6 +50,10 @@ public class Fly extends Insect {
         return getEnergyPoints() > 50;
     }
 
+
+    /**
+     * Count of "Bzz" depends on value of the buzzingVolume
+     */
     @Override
     public void makeSound() {
         if (checkEnergyPoints()) {
@@ -60,6 +66,10 @@ public class Fly extends Insect {
         }
     }
 
+
+    /**
+     * Fly flies if it has enough energy.
+     */
     @Override
     public void fly() {
         if (checkEnergyPoints()) {

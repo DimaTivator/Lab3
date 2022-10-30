@@ -2,7 +2,7 @@ package mummiValeObjects;
 
 import enums.Type;
 
-public abstract class MummiValeObject {
+public abstract class ValeObject {
 
     private final Type type = Type.OBJECT;
 

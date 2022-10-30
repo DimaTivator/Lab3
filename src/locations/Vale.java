@@ -24,7 +24,9 @@ public class Vale extends Location {
         printInfo();
     }
 
-
+    /**
+     * Method prints current month and weather
+     */
     private void printInfo() {
         System.out.printf("Месяц: %s, погода: %s\n", month.getTranslation(), weather.getTranslation());
     }

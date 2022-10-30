@@ -6,6 +6,9 @@ import locations.*;
 import mummiValeObjects.*;
 
 public class Story {
+    /**
+     * Method that creates all objects from the task and prints their status.
+     */
     public void go() {
         Vale mummiVale = new Vale("Мумми-Дол", Month.JULY, Weather.EXTREMELY_HOT);
         System.out.println();
@@ -27,17 +30,17 @@ public class Story {
 
         river.water.setWaterColour(WaterColour.GREY);
 
-        meadow.addMummiValeObject(tree);
-        meadow.addMummiValeObject(river);
+        meadow.addValeObject(tree);
+        meadow.addValeObject(river);
 
         mummiVale.addLocation(meadow);
         mummiVale.addLocation(mummiHouse);
 
         System.out.println();
-        System.out.println("на лугу: " + meadow.getMummiValeObjects());
+        System.out.println("на лугу: " + meadow.getValeObjects());
         System.out.println(mummiVale + ": " + mummiVale.getLocations() + "\n");
 
-        System.out.println(river.flow() +  "\n");
+        river.flow();
 
         WizardsHat hat = new WizardsHat();
         Wizard wizard = new Wizard("Гарри Поттер", hat);

@@ -1,7 +1,7 @@
 package locations;
 
 import enums.Type;
-import mummiValeObjects.MummiValeObject;
+import mummiValeObjects.ValeObject;
 
 import java.util.ArrayList;
 
@@ -14,6 +14,7 @@ public abstract class Location {
     }
 
 
+    // list contains all locations that are added on main location
     private ArrayList<Location> locations = new ArrayList<>();
 
     public void addLocation(Location location) {
@@ -39,28 +40,29 @@ public abstract class Location {
     }
 
 
-    private ArrayList<MummiValeObject> mummiValeObjects = new ArrayList<>();
+    // list contains all objects that are added on vale
+    private ArrayList<ValeObject> valeObjects = new ArrayList<>();
 
-    public void addMummiValeObject(MummiValeObject object) {
-        mummiValeObjects.add(object);
+    public void addValeObject(ValeObject object) {
+        valeObjects.add(object);
     }
 
     /**
      * removes from the list all objects that have simple the same class with the argument
      */
-    public void removeMummiValeObject(MummiValeObject object) {
+    public void removeValeObject(ValeObject object) {
         int i = 0;
-        while (i < mummiValeObjects.size()) {
-            if (mummiValeObjects.get(i).getClass() == object.getClass()) {
-                mummiValeObjects.remove(i);
+        while (i < valeObjects.size()) {
+            if (valeObjects.get(i).getClass() == object.getClass()) {
+                valeObjects.remove(i);
             } else {
                 i++;
             }
         }
     }
 
-    public ArrayList<MummiValeObject> getMummiValeObjects() {
-        return mummiValeObjects;
+    public ArrayList<ValeObject> getValeObjects() {
+        return valeObjects;
     }
 
 
