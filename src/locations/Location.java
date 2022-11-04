@@ -3,7 +3,7 @@ package locations;
 import enums.Type;
 import mummiValeObjects.ValeObject;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public abstract class Location {
 
@@ -15,16 +15,17 @@ public abstract class Location {
 
 
     // list contains all locations that are added on main location
-    private ArrayList<Location> locations = new ArrayList<>();
+    private LinkedList<Location> locations = new LinkedList<>();
 
     public void addLocation(Location location) {
         locations.add(location);
     }
 
     /**
-     * removes from the list all objects that have simple the same class with the argument
+     * removes from the list all objects that have the same class as the argument
      */
     public void removeLocation(Location object) {
+        /* old version of the method
         int i = 0;
         while (i < locations.size()) {
             if (locations.get(i).getClass() == object.getClass()) {
@@ -33,24 +34,27 @@ public abstract class Location {
                 i++;
             }
         }
+        */
+        locations.removeIf(location -> location.getClass().equals(object.getClass()));
     }
 
-    public ArrayList<Location> getLocations() {
+    public LinkedList<Location> getLocations() {
         return locations;
     }
 
 
     // list contains all objects that are added on vale
-    private ArrayList<ValeObject> valeObjects = new ArrayList<>();
+    private LinkedList<ValeObject> valeObjects = new LinkedList<>();
 
     public void addValeObject(ValeObject object) {
         valeObjects.add(object);
     }
 
     /**
-     * removes from the list all objects that have simple the same class with the argument
+     * removes from the list all objects that have the same class as the argument
      */
     public void removeValeObject(ValeObject object) {
+        /* old version of the method
         int i = 0;
         while (i < valeObjects.size()) {
             if (valeObjects.get(i).getClass() == object.getClass()) {
@@ -59,9 +63,11 @@ public abstract class Location {
                 i++;
             }
         }
+         */
+        valeObjects.removeIf(valeObject -> valeObject.getClass().equals(object.getClass()));
     }
 
-    public ArrayList<ValeObject> getValeObjects() {
+    public LinkedList<ValeObject> getValeObjects() {
         return valeObjects;
     }
 
