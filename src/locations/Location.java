@@ -35,7 +35,7 @@ public abstract class Location {
             }
         }
         */
-        locations.removeIf(location -> location.getClass().equals(object.getClass()));
+        locations.removeIf(location -> location.getClass() == object.getClass());
     }
 
     public LinkedList<Location> getLocations() {
@@ -64,7 +64,7 @@ public abstract class Location {
             }
         }
          */
-        valeObjects.removeIf(valeObject -> valeObject.getClass().equals(object.getClass()));
+        valeObjects.removeIf(valeObject -> valeObject.getClass() == object.getClass());
     }
 
     public LinkedList<ValeObject> getValeObjects() {
