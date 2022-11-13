@@ -21,13 +21,8 @@ public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned
     /**
      * Method sets owner to a magic hat. The owner can be only a wizard
      */
-    @Override
-    public void setOwner(Human owner) {
-        if (owner instanceof Wizard) {
-            super.setOwner(owner);
-        } else {
-            System.out.println("Владельцем волшебной шляпы может быть только волшебник!");
-        }
+    public void setOwner(Wizard owner) {
+        super.setOwner(owner);
     }
 
     @Override

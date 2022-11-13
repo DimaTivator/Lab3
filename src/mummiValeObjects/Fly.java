@@ -50,7 +50,6 @@ public class Fly extends Insect {
         return getEnergyPoints() > 50;
     }
 
-
     /**
      * Count of "Bzz" depends on value of the buzzingVolume
      */

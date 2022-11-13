@@ -25,16 +25,6 @@ public abstract class Location {
      * removes from the list all objects that have the same class as the argument
      */
     public void removeLocation(Location object) {
-        /* old version of the method
-        int i = 0;
-        while (i < locations.size()) {
-            if (locations.get(i).getClass() == object.getClass()) {
-                locations.remove(i);
-            } else {
-                i++;
-            }
-        }
-        */
         locations.removeIf(location -> location.getClass() == object.getClass());
     }
 
@@ -54,16 +44,6 @@ public abstract class Location {
      * removes from the list all objects that have the same class as the argument
      */
     public void removeValeObject(ValeObject object) {
-        /* old version of the method
-        int i = 0;
-        while (i < valeObjects.size()) {
-            if (valeObjects.get(i).getClass() == object.getClass()) {
-                valeObjects.remove(i);
-            } else {
-                i++;
-            }
-        }
-         */
         valeObjects.removeIf(valeObject -> valeObject.getClass() == object.getClass());
     }
 
