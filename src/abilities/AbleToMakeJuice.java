@@ -1,6 +1,6 @@
 package abilities;
 
-import mummiValeObjects.Water;
+import valeObjects.Water;
 
 public interface AbleToMakeJuice {
 

@@ -1,7 +1,7 @@
 package locations;
 
 import enums.Type;
-import mummiValeObjects.ValeObject;
+import valeObjects.ValeObject;
 
 import java.util.LinkedList;
 

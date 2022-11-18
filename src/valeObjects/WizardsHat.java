@@ -1,8 +1,7 @@
-package mummiValeObjects;
+package valeObjects;
 
 import abilities.AbleToBePardoned;
 import abilities.AbleToMakeJuice;
-import humans.Human;
 import humans.Wizard;
 
 public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned {

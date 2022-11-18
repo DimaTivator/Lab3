@@ -1,4 +1,4 @@
-package mummiValeObjects;
+package valeObjects;
 
 import abilities.AbleToBeLiquid;
 import abilities.AbleToBecomeJuice;

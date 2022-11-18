@@ -1,4 +1,4 @@
-package mummiValeObjects;
+package valeObjects;
 
 public abstract class Insect extends ValeObject {
 

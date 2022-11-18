@@ -3,7 +3,7 @@ import enums.WaterColour;
 import enums.Weather;
 import humans.*;
 import locations.*;
-import mummiValeObjects.*;
+import valeObjects.*;
 
 public class Story {
     /**

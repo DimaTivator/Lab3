@@ -1,8 +1,8 @@
 package humans;
 
 import abilities.AbleToMakeJuice;
-import mummiValeObjects.Water;
-import mummiValeObjects.WizardsHat;
+import valeObjects.Water;
+import valeObjects.WizardsHat;
 
 public class Wizard extends Human implements AbleToMakeJuice {
 

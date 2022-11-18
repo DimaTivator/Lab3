@@ -1,4 +1,4 @@
-package mummiValeObjects;
+package valeObjects;
 
 public class Fly extends Insect {
 
