@@ -26,7 +26,7 @@ public class StoryTeller {
         Fly fly = new Fly(1, 2, 1);
         meadow.addValeObject(fly);
 
-        WizardsHat hat = new WizardsHat();
+        Wizard.WizardsHat hat = new Wizard.WizardsHat();
         meadow.addValeObject(hat);
         Wizard wizard = new Wizard("Гарри Поттер", hat);
         System.out.println();
