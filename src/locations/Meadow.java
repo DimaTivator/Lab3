@@ -11,10 +11,11 @@ public class Meadow extends Location implements AbleToFeelWeather {
 
 
     /**
-     * Method prints status, that depends on the weather
+     * TODO:
+     * Method prints status, that depends on the weather, of the meadow and all objects on it
      */
     @Override
-    public void printStatus(Weather weather) {
+    public void feelWeather(Weather weather) {
         switch (weather) {
             case EXTREMELY_HOT -> {
                 System.out.println("Луга жаждут");
@@ -25,6 +26,10 @@ public class Meadow extends Location implements AbleToFeelWeather {
             default -> {
                 System.out.println("Погода не влияет на луга");
             }
+        }
+
+        for (AbleToFeelWeather object : getValeObjects()) {
+            object.feelWeather(weather);
         }
     }
 

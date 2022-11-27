@@ -3,7 +3,7 @@ package valeObjects;
 import abilities.AbleToFeelWeather;
 import enums.Weather;
 
-public class Tree extends ValeObject implements AbleToFeelWeather {
+public class Tree extends ValeObject {
 
     public Tree() {
         System.out.println("Дерево создано");
@@ -13,7 +13,7 @@ public class Tree extends ValeObject implements AbleToFeelWeather {
      * Depending on the type of current weather void outputs the tree's status
      */
     @Override
-    public void printStatus(Weather weather) {
+    public void feelWeather(Weather weather) {
         switch (weather) {
             case EXTREMELY_HOT -> {
                 System.out.println("Деревья изнемогают от страшной жары :(");

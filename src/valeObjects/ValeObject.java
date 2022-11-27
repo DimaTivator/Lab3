@@ -1,8 +1,9 @@
 package valeObjects;
 
+import abilities.AbleToFeelWeather;
 import enums.Type;
 
-public abstract class ValeObject {
+public abstract class ValeObject implements AbleToFeelWeather {
 
     private final Type type = Type.OBJECT;
 

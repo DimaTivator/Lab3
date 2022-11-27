@@ -4,5 +4,5 @@ import enums.Weather;
 
 public interface AbleToFeelWeather {
 
-    void printStatus(Weather weather);
+    void feelWeather(Weather weather);
 }

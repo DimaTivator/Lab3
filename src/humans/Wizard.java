@@ -22,6 +22,7 @@ public class Wizard extends Human implements AbleToMakeJuice {
 
     public void setHat(WizardsHat hat) {
         this.hat = hat;
+        this.hat.setOwner(this);
     }
 
     public WizardsHat getHat() {

@@ -1,6 +1,7 @@
 package valeObjects;
 
 import abilities.AbleToBeLiquid;
+import enums.Weather;
 
 public class River extends ValeObject implements AbleToBeLiquid {
 
@@ -11,8 +12,6 @@ public class River extends ValeObject implements AbleToBeLiquid {
         System.out.printf("Создана речка с уровнем воды %.2f(м)\n", waterLevel);
     }
 
-
-    private double waterLevel;
 
     @Override
     public void changeLevel(double shift) {
@@ -25,12 +24,23 @@ public class River extends ValeObject implements AbleToBeLiquid {
         }
     }
 
-    public double getWaterLevel() {
-        return waterLevel;
+
+    @Override
+    public void feelWeather(Weather weather) {
+        switch (weather) {
+            case EXTREMELY_HOT -> {
+                changeLevel(-water.getWaterLevel());
+            }
+            case HOT -> {
+                changeLevel(-1);
+            }
+        }
+        flow();
+        water.feelWeather(weather);
     }
 
     private boolean isShallow() {
-        return waterLevel < 1;
+        return water.getWaterLevel() < 1;
     }
 
     /**

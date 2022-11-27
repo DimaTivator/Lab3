@@ -2,16 +2,18 @@ package valeObjects;
 
 import abilities.AbleToBePardoned;
 import abilities.AbleToMakeJuice;
+import enums.Weather;
 import humans.Wizard;
 
 public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned {
 
     private boolean isPardoned = false;
+    private double probability = 0;
 
     @Override
     public void makeJuice(Water water) {
         if (isPardoned) {
-            water.becomeJuice();
+            water.becomeJuice(probability);
         } else {
             System.out.println("Не помилованная шляпа не может превратить воду в сок :(");
         }
@@ -33,6 +35,23 @@ public class WizardsHat extends Hat implements AbleToMakeJuice, AbleToBePardoned
     public void makePardoned() {
         isPardoned = true;
         System.out.printf("Шляпа волшебника %s помилована\n", getOwner().getName());
+    }
+
+    @Override
+    public void feelWeather(Weather weather) {
+        switch (weather) {
+            case EXTREMELY_HOT, EXTREMELY_COLD -> {
+                probability = 0.4;
+                System.out.println("Из-за невыносимой погоды магические свойства шляпы сильно уменьшились " +
+                        "(вероятность превратить воду в сок = 0.4)");
+            }
+            case HOT, COLD -> {
+                probability = 0.6;
+                System.out.println("Из-за погоды магические свойства шляпы немного уменьшились " +
+                        "(вероятность преврать воду в сок = 0.6)");
+            }
+
+        }
     }
 
     @Override

@@ -11,12 +11,6 @@ public class Water extends ValeObject implements AbleToBeLiquid, AbleToBecomeJui
 
     private boolean ableToBecomeJuice = false;
 
-    public Water(Weather weather) {
-        changeStatus(weather);
-    }
-
-    public Water() {};
-
     private double waterLevel = 0;
 
     /**
@@ -75,26 +69,28 @@ public class Water extends ValeObject implements AbleToBeLiquid, AbleToBecomeJui
             flowingSpeed = 1;
         }
         System.out.printf("Вода течет со скоростью %.2f м/с", flowingSpeed);
-    };
+    }
 
     /**
      * If weather is auspicious, water is able to become juice.
      * In the other case, you need to change weather before calling this method
      */
     @Override
-    public void becomeJuice() {
-        if (ableToBecomeJuice) {
+    public void becomeJuice(double probability) {
+        if (!ableToBecomeJuice) {
+            System.out.println("От невыносимой жары вода не может превратиться в сок :(");
+        } else if (Math.random() < probability) {
             waterColour = WaterColour.ORANGE;
             System.out.println("Магия! Вода превратилась в апельсиновый сок!");
         } else {
-            System.out.println("От невыносимой жары вода не может превратиться в сок :(");
+            System.out.println("Шляпа не смогла превратить воду в сок");
         }
     }
 
 
-    public void changeStatus(Weather weather) {
-        // if the weather is extremely hot, water is not able to become juice
-        ableToBecomeJuice = !weather.equals(Weather.EXTREMELY_HOT);
+    public void feelWeather(Weather weather) {
+        // if the weather is extremely hot or extremely cold, water is not able to become juice
+        ableToBecomeJuice = !(weather.equals(Weather.EXTREMELY_HOT) || weather.equals(Weather.EXTREMELY_COLD));
     }
 
 

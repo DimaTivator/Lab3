@@ -2,5 +2,5 @@ package abilities;
 
 public interface AbleToBecomeJuice {
 
-    void becomeJuice();
+    void becomeJuice(double probability);
 }

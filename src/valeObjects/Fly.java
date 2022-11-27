@@ -1,5 +1,8 @@
 package valeObjects;
 
+
+import enums.Weather;
+
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
@@ -29,11 +32,6 @@ public class Fly extends Insect {
         super.setSizeZ(Math.min(Math.max(sizeZ, 0), 5));
     }
 
-    @Override
-    public void setEnergyPoints(double energyPoints) {
-        super.setEnergyPoints(Math.min(Math.max(energyPoints, 0), 100));
-    }
-
 
     // the value of buzzing volume (from 1 to 5)
     private int buzzingVolume = 3;
@@ -47,7 +45,7 @@ public class Fly extends Insect {
     }
 
     private boolean checkEnergyPoints() {
-        return getEnergyPoints() > 50;
+        return getEnergyPoints() > getMaxEnergyPointsValue() * 0.7;
     }
 
     /**
@@ -72,10 +70,28 @@ public class Fly extends Insect {
     @Override
     public void fly() {
         if (checkEnergyPoints()) {
+            makeSound();
             System.out.println("Муха летает! Bzz Bzz Bzz");
         } else {
             System.out.println("У мухи нет сил летать :(");
         }
+    }
+
+
+    @Override
+    public void feelWeather(Weather weather) {
+        switch (weather) {
+            case EXTREMELY_HOT, EXTREMELY_COLD -> {
+                setMaxEnergyPointsValue(45);
+                setEnergyPoints(10);
+            }
+            case HOT, COLD -> {
+                setMaxEnergyPointsValue(70);
+                setEnergyPoints(60);
+            }
+        }
+
+        fly();
     }
 
     @Override
@@ -83,7 +99,8 @@ public class Fly extends Insect {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Fly fly = (Fly) obj;
-        return hashCode() == fly.hashCode();
+        return hashCode() == fly.hashCode() && getSizeX() == fly.getSizeX()
+        && getSizeY() == fly.getSizeY() && getSizeZ() == fly.getSizeZ();
     }
 
     @Override

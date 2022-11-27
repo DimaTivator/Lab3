@@ -1,8 +1,19 @@
 package valeObjects;
 
+
 public abstract class Insect extends ValeObject {
 
-    // the value of fly's energy (from 0 to 100)
+    private double maxEnergyPointsValue = 100;
+
+    public void setMaxEnergyPointsValue(double value) {
+        maxEnergyPointsValue = value;
+    }
+
+    public double getMaxEnergyPointsValue() {
+        return maxEnergyPointsValue;
+    }
+
+    // the value of fly's energy (from 0 to maxEnergyPointsValue)
     private double energyPoints = 50;
 
     public double getEnergyPoints() {
@@ -10,7 +21,7 @@ public abstract class Insect extends ValeObject {
     }
 
     public void setEnergyPoints(double energyPoints) {
-        this.energyPoints = energyPoints;
+        this.energyPoints = Math.min(Math.max(energyPoints, 0), getMaxEnergyPointsValue());
     }
 
     // sizes of fly in 3 dimensions: x, y, z
