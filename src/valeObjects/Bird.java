@@ -2,7 +2,8 @@ package valeObjects;
 
 import enums.Weather;
 
-// TODO
+import java.util.Objects;
+
 public class Bird extends ValeObject {
 
     // the volume of birdsong
@@ -32,7 +33,17 @@ public class Bird extends ValeObject {
             }
             System.out.println(":-)");
         } else {
-            System.out.println("От жары у птиц нет сил петь :(");
+            System.out.println("Птицы смолкли :(");
         }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return getClass() == object.getClass();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(volume);
     }
 }
