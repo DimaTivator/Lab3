@@ -100,5 +100,10 @@ public class Moomin implements AbleToSleep {
     public int hashCode() {
         return Objects.hash(name, gender, sizes, sleepingStatus);
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
 

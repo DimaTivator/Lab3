@@ -59,7 +59,7 @@ public class Vale extends Location {
 
 
     // current time of day
-    private TimeOfDay timeOfDay;
+    private TimeOfDay timeOfDay = TimeOfDay.AFTERNOON;
 
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;

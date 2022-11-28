@@ -46,4 +46,9 @@ public class Bird extends ValeObject {
     public int hashCode() {
         return Objects.hash(volume);
     }
+
+    @Override
+    public String toString() {
+        return "птица";
+    }
 }
