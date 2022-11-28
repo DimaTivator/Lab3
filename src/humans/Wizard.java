@@ -80,14 +80,14 @@ public class Wizard extends Human implements AbleToMakeJuice {
     public WizardsHat hat;
 
     public Wizard(String name, WizardsHat hat) {
+        super(name);
         this.hat = hat;
-        setName(name);
         hat.setOwner(this);
         System.out.printf("Волшебник %s с шляпой создан\n", name);
     }
 
     public Wizard(String name) {
-        setName(name);
+        super(name);
         System.out.printf("Волшебник %s создан\n", name);
     }
 
