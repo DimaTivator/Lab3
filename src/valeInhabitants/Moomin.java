@@ -1,5 +1,6 @@
 package valeInhabitants;
 
+import abilities.AbleToDig;
 import abilities.AbleToSleep;
 import dataStructures.Sizes;
 import enums.Gender;
@@ -7,7 +8,7 @@ import locations.Cave;
 
 import java.util.Objects;
 
-public class Moomin implements AbleToSleep {
+public class Moomin implements AbleToSleep, AbleToDig {
 
     private final String name;
     private final Gender gender;
@@ -30,15 +31,15 @@ public class Moomin implements AbleToSleep {
 
 
     /**
-     * method digs a pit on the cave on the first at the first free place we met
+     * Moomin digs a pit on the cave on the first at the first free place we met
      */
-    public void digPitInTheCave(Cave cave) {
+    public void dig(Cave cave) {
 
         boolean placeFound = false;
 
         outerCycle:
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
+        for (int i = 0; i < cave.getSizeX() - sizes.sizeX(); i++) {
+            for (int j = 0; j < cave.getSizeY() - sizes.sizeY(); j++) {
                 boolean isFree = true;
 
                 for (int k = i; k < sizes.sizeX() + i; k++) {
