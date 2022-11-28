@@ -4,6 +4,7 @@ import abilities.AbleToDig;
 import abilities.AbleToSleep;
 import dataStructures.Sizes;
 import enums.Gender;
+import exceptions.graphExceptions.FreePlaceNotFoundException;
 import locations.Cave;
 
 import java.util.Objects;
@@ -33,7 +34,7 @@ public class Moomin implements AbleToSleep, AbleToDig {
     /**
      * Moomin digs a pit on the cave on the first at the first free place we met
      */
-    public void dig(Cave cave) {
+    public void dig(Cave cave) throws FreePlaceNotFoundException {
 
         boolean placeFound = false;
 
@@ -61,7 +62,7 @@ public class Moomin implements AbleToSleep, AbleToDig {
         }
 
         if (!placeFound) {
-            // TODO throwing exception
+            throw new FreePlaceNotFoundException();
         }
     }
 

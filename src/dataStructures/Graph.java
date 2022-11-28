@@ -24,7 +24,10 @@ public class Graph<T> {
      * Method attaches vertex to all other vertexes in graph
      */
     public void addVertex(T vertex) throws AlreadyContainsVertexException {
-        // TODO check whether graph already contains vertex
+        if (graph.containsKey(vertex)) {
+            throw new AlreadyContainsVertexException("graph already contains this vertex!");
+        }
+
         if (graph.isEmpty()) {
             graph.put(vertex, new ArrayList<T>());
         } else {
