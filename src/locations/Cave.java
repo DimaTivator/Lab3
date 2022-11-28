@@ -3,7 +3,6 @@ package locations;
 import java.util.Arrays;
 import java.util.Objects;
 
-// TODO
 public class Cave extends Location {
 
     // caves sizes in 2 dimensions: x, y
@@ -43,10 +42,10 @@ public class Cave extends Location {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cave cave = (Cave) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Cave cave = (Cave) object;
         return sizeX == cave.sizeX && sizeY == cave.sizeY && Arrays.deepEquals(caveSurface, cave.caveSurface);
     }
 
