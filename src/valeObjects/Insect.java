@@ -1,6 +1,8 @@
 package valeObjects;
 
 
+import dataStructures.Sizes;
+
 public abstract class Insect extends ValeObject {
 
     private double maxEnergyPointsValue = 100;
@@ -25,33 +27,7 @@ public abstract class Insect extends ValeObject {
     }
 
     // sizes of fly in 3 dimensions: x, y, z
-    private double sizeX = 1;
-    private double sizeY = 1;
-    private double sizeZ = 1;
-
-    public double getSizeX() {
-        return sizeX;
-    }
-
-    public void setSizeX(double sizeX) {
-        this.sizeX = sizeX;
-    }
-
-    public double getSizeY() {
-        return sizeY;
-    }
-
-    public void setSizeY(double sizeY) {
-        this.sizeY = sizeY;
-    }
-
-    public double getSizeZ() {
-        return sizeZ;
-    }
-
-    public void setSizeZ(double sizeZ) {
-        this.sizeZ = sizeZ;
-    }
+    public Sizes<Double> sizes = new Sizes<>(1.0, 1.0, 1.0);
 
     abstract void makeSound();
 
