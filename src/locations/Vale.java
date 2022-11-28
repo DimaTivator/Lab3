@@ -1,6 +1,7 @@
 package locations;
 
 import enums.Month;
+import enums.TimeOfDay;
 import enums.Weather;
 
 public class Vale extends Location {
@@ -16,9 +17,10 @@ public class Vale extends Location {
         printInfo();
     }
 
-    public Vale(String name, Month month, Weather weather) {
+    public Vale(String name, Month month, Weather weather, TimeOfDay timeOfDay) {
         this.month = month;
         this.weather = weather;
+        this.timeOfDay = timeOfDay;
         setName(name);
         System.out.printf("%s создана.\n", name);
         printInfo();
@@ -43,6 +45,7 @@ public class Vale extends Location {
         return weather;
     }
 
+
     // current month
     private Month month = Month.MAY;
 
@@ -52,6 +55,18 @@ public class Vale extends Location {
 
     public void setMonth(Month month) {
         this.month = month;
+    }
+
+
+    // current time of day
+    private TimeOfDay timeOfDay;
+
+    public TimeOfDay getTimeOfDay() {
+        return timeOfDay;
+    }
+
+    public void setTimeOfDay(TimeOfDay timeOfDay) {
+        this.timeOfDay = timeOfDay;
     }
 
 
