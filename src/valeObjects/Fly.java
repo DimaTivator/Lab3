@@ -3,12 +3,14 @@ package valeObjects;
 
 import enums.Weather;
 
+import java.util.Objects;
+
 public class Fly extends Insect {
 
     public Fly(double sizeX, double sizeY, double sizeZ) {
-        setSizeX(sizeX);
-        setSizeY(sizeY);
-        setSizeZ(sizeZ);
+        sizes.setSizeX(sizeX);
+        sizes.setSizeY(sizeY);
+        sizes.setSizeZ(sizeZ);
         System.out.println("Муха создана");
     }
 
@@ -17,19 +19,16 @@ public class Fly extends Insect {
     }
 
 
-    @Override
     public void setSizeX(double sizeX) {
-        super.setSizeX(Math.min(Math.max(sizeX, 0), 5));
+        sizes.setSizeX(Math.max(0, Math.min(5, sizeX)));
     }
 
-    @Override
     public void setSizeY(double sizeY) {
-        super.setSizeY(Math.min(Math.max(sizeY, 0), 5));
+        sizes.setSizeY(Math.max(0, Math.min(5, sizeY)));
     }
 
-    @Override
     public void setSizeZ(double sizeZ) {
-        super.setSizeZ(Math.min(Math.max(sizeZ, 0), 5));
+        sizes.setSizeZ(Math.max(0, Math.min(5, sizeZ)));
     }
 
 
@@ -99,13 +98,15 @@ public class Fly extends Insect {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Fly fly = (Fly) obj;
-        return hashCode() == fly.hashCode() && getSizeX() == fly.getSizeX()
-        && getSizeY() == fly.getSizeY() && getSizeZ() == fly.getSizeZ();
+        return hashCode() == fly.hashCode() && Objects.equals(sizes.sizeX(), fly.sizes.sizeX())
+        && Objects.equals(sizes.sizeY(), fly.sizes.sizeY()) && Objects.equals(sizes.sizeZ(), fly.sizes.sizeZ());
     }
 
     @Override
     public int hashCode() {
-        return ((int) (getSizeX() * 17667049) % 3797191 % 8923) * ((int) (getSizeY() * 17667049) % 3797191 % 8923) * ((int) (getSizeZ() * 17667049) % 3797191 % 8923);
+        return ((int) (sizes.sizeX() * 17667049) % 3797191 % 8923) *
+                ((int) (sizes.sizeY() * 17667049) % 3797191 % 8923) *
+                ((int) (sizes.sizeZ() * 17667049) % 3797191 % 8923);
     }
 
     @Override
