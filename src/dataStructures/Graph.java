@@ -1,11 +1,16 @@
 package dataStructures;
 
+import auxiliaryClasses.ConsoleColors;
+import exceptions.graphExceptions.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
- * Data structure to contain graph that can show moomins friendships.
+ * Data structure to contain graph that can show moomins friendships (of course it can contain anything, but in
+ * this task we use it to contain friendships).
  * Graph is assumed to be complete (all moomins have friendships with each other).
  * If graph does not contain the edge between vertex1 and vertex2, it means that vertex1 and vertex2
  * are in a quarrel.
@@ -18,7 +23,7 @@ public class Graph<T> {
     /**
      * Method attaches vertex to all other vertexes in graph
      */
-    public void addVertex(T vertex) {
+    public void addVertex(T vertex) throws AlreadyContainsVertexException {
         // TODO check whether graph already contains vertex
         if (graph.isEmpty()) {
             graph.put(vertex, new ArrayList<T>());
@@ -40,9 +45,12 @@ public class Graph<T> {
     /**
      * Method removes vertex and all its edges
      */
-    public void removeVertex(T vertex) {
-        // TODO check whether graph does not contain vertex
-        graph.remove(vertex);
+    public void removeVertex(T vertex) throws VertexNotFoundException {
+        if (graph.containsKey(vertex)) {
+            graph.remove(vertex);
+        } else {
+            throw new VertexNotFoundException(ConsoleColors.RED + "vertex not found!" + ConsoleColors.RESET);
+        }
 
         for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
             ArrayList<T> currentVertexAdjacencyList = graph.get(entry.getKey());
@@ -54,15 +62,28 @@ public class Graph<T> {
     /**
      * Method adds edge between vertex1 and vertex2
      */
-    public void addEdge(T vertex1, T vertex2) {
-        // TODO check whether the graph contains the edge between vertex1 and vertex2
-        ArrayList<T> adjacencyListVertex1 = graph.get(vertex1);
-        adjacencyListVertex1.add(vertex2);
-        graph.put(vertex1, adjacencyListVertex1);
+    public void addEdge(T vertex1, T vertex2) throws AlreadyContainsEdgeException, VertexNotFoundException {
 
-        ArrayList<T> adjacencyListVertex2 = graph.get(vertex2);
-        adjacencyListVertex2.add(vertex1);
-        graph.put(vertex2, adjacencyListVertex2);
+        if (graph.containsKey(vertex1)) {
+            ArrayList<T> adjacencyListVertex1 = graph.get(vertex1);
+            adjacencyListVertex1.add(vertex2);
+
+            if (graph.get(vertex1).contains(vertex2)) {
+                throw new AlreadyContainsEdgeException();
+            }
+
+            graph.put(vertex1, adjacencyListVertex1);
+        } else {
+            throw new VertexNotFoundException(ConsoleColors.RED + "vertex1 not found!" + ConsoleColors.RESET);
+        }
+
+        if (graph.containsKey(vertex2)) {
+            ArrayList<T> adjacencyListVertex2 = graph.get(vertex2);
+            adjacencyListVertex2.add(vertex1);
+            graph.put(vertex2, adjacencyListVertex2);
+        } else {
+            throw new VertexNotFoundException(ConsoleColors.RED + "vertex2 not found!" + ConsoleColors.RESET);
+        }
     }
 
     /**
@@ -78,11 +99,23 @@ public class Graph<T> {
         graph.put(vertex2, adjacencyListVertex2);
     }
 
-    public void printGraph() {
+    @Override
+    public String toString() {
+        StringBuilder stringGraph = new StringBuilder();
+
         for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
-            System.out.println(entry.getKey() + ": ");
-            entry.getValue().forEach(value -> System.out.print(value + " "));
-            System.out.println();
+            stringGraph.append(entry.getKey()).append(": \n");
+            entry.getValue().forEach(value -> stringGraph.append(value).append(' '));
+            stringGraph.append('\n');
         }
+
+        return stringGraph.toString();
+    }
+
+    // TODO equals
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(graph);
     }
 }
