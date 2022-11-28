@@ -1,8 +1,8 @@
-import enums.Month;
-import enums.WaterColour;
-import enums.Weather;
+import enums.*;
 import humans.*;
 import locations.*;
+import org.w3c.dom.ls.LSOutput;
+import valeInhabitants.Moomin;
 import valeObjects.*;
 
 public class StoryTeller {
@@ -10,7 +10,7 @@ public class StoryTeller {
      * Method that creates all objects from the task and prints their status.
      */
     public void go() {
-        Vale mummiVale = new Vale("Мумми-Дол", Month.JULY, Weather.HOT);
+        Vale mummiVale = new Vale("Мумми-Дол", Month.JULY, Weather.HOT, TimeOfDay.AFTERNOON);
         System.out.println();
 
         Meadow meadow = new Meadow();
@@ -47,5 +47,10 @@ public class StoryTeller {
         System.out.println();
         mummiHouse.becomeJungle();
 
+        Moomin snufkin = new Moomin("Снусмумрик", Gender.MAN, 4, 1, 1) {
+            public void playSong() {
+                System.out.printf(getName() + " играет %s песню\n", Math.random() < 0.5 ? "грустную" : "веселую");
+            }
+        };
     }
 }
