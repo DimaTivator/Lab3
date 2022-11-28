@@ -36,7 +36,7 @@ public class Graph<T> {
             // adding all graph vertexes to vertexNeighbours list and new edges
             for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
                 adjacencyList.add(entry.getKey());
-                ArrayList<T> currentVertexAdjacencyList = graph.get(entry.getKey());
+                ArrayList<T> currentVertexAdjacencyList = entry.getValue();
                 currentVertexAdjacencyList.add(vertex);
                 graph.put(entry.getKey(), currentVertexAdjacencyList);
             }
@@ -56,7 +56,7 @@ public class Graph<T> {
         }
 
         for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
-            ArrayList<T> currentVertexAdjacencyList = graph.get(entry.getKey());
+            ArrayList<T> currentVertexAdjacencyList = entry.getValue();
             currentVertexAdjacencyList.remove(vertex);
             graph.put(entry.getKey(), currentVertexAdjacencyList);
         }
@@ -102,6 +102,10 @@ public class Graph<T> {
         graph.put(vertex2, adjacencyListVertex2);
     }
 
+    public Map<T, ArrayList<T>> getGraph() {
+        return graph;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringGraph = new StringBuilder();
@@ -115,7 +119,42 @@ public class Graph<T> {
         return stringGraph.toString();
     }
 
-    // TODO equals
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Graph<?> g = (Graph<?>) object;
+        Map<?, ? extends ArrayList<?>> graph1 = g.getGraph();
+
+        if (graph1.isEmpty() && graph.isEmpty()) return true;
+        if (graph1.isEmpty() || graph.isEmpty()) return false;
+
+        class ListsEqualityChecker {
+
+            public boolean checkEquality(ArrayList<T> a, ArrayList<T> b) {
+                for (T element : a) {
+                    if (!b.contains(element)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        ListsEqualityChecker checker = new ListsEqualityChecker();
+
+        for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
+
+            ArrayList<T> currentVertexAdjacencyList = entry.getValue();
+
+            if (!graph1.containsKey(entry.getKey()) || graph1.get(entry.getKey()).getClass() != ArrayList.class ||
+                    !checker.checkEquality(currentVertexAdjacencyList, (ArrayList<T>) graph1.get(entry.getKey()))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     @Override
     public int hashCode() {
