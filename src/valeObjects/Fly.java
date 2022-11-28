@@ -43,10 +43,6 @@ public class Fly extends Insect {
         this.buzzingVolume = Math.min(Math.max(buzzingVolume, 0), 5);
     }
 
-    private boolean checkEnergyPoints() {
-        return getEnergyPoints() > getMaxEnergyPointsValue() * 0.7;
-    }
-
     /**
      * Count of "Bzz" depends on value of the buzzingVolume
      */
@@ -66,7 +62,6 @@ public class Fly extends Insect {
     /**
      * Fly flies if it has enough energy.
      */
-    @Override
     public void fly() {
         if (checkEnergyPoints()) {
             makeSound();

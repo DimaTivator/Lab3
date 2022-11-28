@@ -22,6 +22,10 @@ public abstract class Insect extends ValeObject {
         return energyPoints;
     }
 
+    public boolean checkEnergyPoints() {
+        return energyPoints > maxEnergyPointsValue * 0.7;
+    }
+
     public void setEnergyPoints(double energyPoints) {
         this.energyPoints = Math.min(Math.max(energyPoints, 0), getMaxEnergyPointsValue());
     }
@@ -30,6 +34,4 @@ public abstract class Insect extends ValeObject {
     public Sizes<Double> sizes = new Sizes<>(1.0, 1.0, 1.0);
 
     abstract void makeSound();
-
-    abstract void fly();
 }
