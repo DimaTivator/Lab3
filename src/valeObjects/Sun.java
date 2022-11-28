@@ -58,39 +58,60 @@ public class Sun {
      * Method changes the weather in vales from the list of vales that are illuminated by the sun
      */
     public void shine() {
-        if (radiationIntensity > 2000) {
 
-            System.out.println("Солнце печет как никогда");
-            vales.forEach(vale -> vale.setWeather(Weather.EXTREMELY_HOT));
+        for (Vale vale : vales) {
 
-        } else if (radiationIntensity > 1500) {
+            switch (vale.getTimeOfDay()) {
 
-            System.out.println("Ясный солнечный день. Жара!");
-            vales.forEach(vale -> vale.setWeather(Weather.HOT));
+                case MORNING, AFTERNOON -> {
 
-        } else if (radiationIntensity > 1000) {
+                    if (radiationIntensity > 2000) {
 
-            vales.forEach(vale -> {
-                Month month = vale.getMonth();
-                if (month != Month.MAY && month != Month.JUNE && month != Month.JULY && month != Month.AUGUST) {
-                    vale.setWeather(Weather.COOL);
-                    System.out.println("Прохладный ясный день в долине " + vale);
-                } else {
-                    vale.setWeather(Weather.WARM);
-                    System.out.println("Теплый облачный день в долине " + vale);
+                        System.out.printf("В долине %s солнце печет как никогда\n", vale);
+                        vale.setWeather(Weather.EXTREMELY_HOT);
+
+                    } else if (radiationIntensity > 1500) {
+
+                        System.out.println("Ясный солнечный день. Жара в долине " + vale);
+                        vale.setWeather(Weather.HOT);
+
+                    } else if (radiationIntensity > 1000) {
+
+                        Month month = vale.getMonth();
+                        if (month != Month.MAY && month != Month.JUNE && month != Month.JULY && month != Month.AUGUST) {
+                            vale.setWeather(Weather.COOL);
+                            System.out.println("Прохладный ясный день в долине " + vale);
+                        } else {
+                            vale.setWeather(Weather.WARM);
+                            System.out.println("Теплый облачный день в долине " + vale);
+                        }
+
+                    } else if (radiationIntensity > 500) {
+
+                        System.out.println("Солнце еле светит. Мороз в долине " + vale);
+                        vale.setWeather(Weather.COLD);
+
+                    } else {
+
+                        System.out.printf("В долине %s олод как на северном полюсе\n", vale);
+                        vale.setWeather(Weather.EXTREMELY_COLD);
+
+                    }
                 }
-            });
 
-        } else if (radiationIntensity > 500) {
+                case EVENING -> {
+                    System.out.println("Красивейший красный закат. Солнце заливает долину теплым светом");
+                    Weather weather = vale.getWeather();
+                    if (weather == Weather.EXTREMELY_HOT || weather == Weather.HOT) {
+                        vale.setWeather(Weather.WARM);
+                        System.out.println("Становится прохладнее");
+                    }
+                }
 
-            System.out.println("Солнце еле светит. Мороз!");
-            vales.forEach(vale -> vale.setWeather(Weather.COLD));
-
-        } else {
-
-            System.out.println("Холод как на северном полюсе");
-            vales.forEach(vale -> vale.setWeather(Weather.EXTREMELY_COLD));
-
+                case NIGHT -> {
+                    System.out.println("Ночь. Солнце не светит");
+                }
+            }
         }
     }
 }
