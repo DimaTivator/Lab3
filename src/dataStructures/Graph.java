@@ -25,7 +25,8 @@ public class Graph<T> {
      */
     public void addVertex(T vertex) throws AlreadyContainsVertexException {
         if (graph.containsKey(vertex)) {
-            throw new AlreadyContainsVertexException("graph already contains this vertex!");
+            throw new AlreadyContainsVertexException(ConsoleColors.RED +
+                    "Нельзя добавить в граф вершину, которая в нем уже есть!" + ConsoleColors.RESET);
         }
 
         if (graph.isEmpty()) {
@@ -112,7 +113,7 @@ public class Graph<T> {
 
         for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
             stringGraph.append(entry.getKey()).append(": \n");
-            entry.getValue().forEach(value -> stringGraph.append(value).append(' '));
+            entry.getValue().forEach(value -> stringGraph.append(value).append("; "));
             stringGraph.append('\n');
         }
 

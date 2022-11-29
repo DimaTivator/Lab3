@@ -9,12 +9,10 @@ public class Vale extends Location {
     public Vale(String name) {
         setName(name);
         System.out.printf("%s создана\n", name);
-        printInfo();
     }
 
     public Vale() {
         System.out.printf("%s создана\n", getName());
-        printInfo();
     }
 
     public Vale(String name, Month month, Weather weather, TimeOfDay timeOfDay) {

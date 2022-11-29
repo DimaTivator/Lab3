@@ -4,6 +4,7 @@ import abilities.AbleToDig;
 import abilities.AbleToSleep;
 import dataStructures.Sizes;
 import enums.Gender;
+import exceptions.NotEnoughPlaceException;
 import exceptions.graphExceptions.FreePlaceNotFoundException;
 import locations.Cave;
 
@@ -33,8 +34,15 @@ public class Moomin implements AbleToSleep, AbleToDig {
 
     /**
      * Moomin digs a pit on the cave on the first at the first free place we met
+     * Method throws FreePlaceNotFoundException if there is no free place to dig
+     * Method throws NotEnoughPlaceException if moomin is bigger than cave
      */
+    @Override
     public void dig(Cave cave) throws FreePlaceNotFoundException {
+
+        if (sizes.sizeX() > cave.getSizeX() || sizes.sizeY() > cave.getSizeY()) {
+            throw new NotEnoughPlaceException(name + " имеет слишком большие размеры чтобы рыть себе ямку в этом гроте");
+        }
 
         boolean placeFound = false;
 
@@ -56,6 +64,7 @@ public class Moomin implements AbleToSleep, AbleToDig {
                         }
                     }
                     placeFound = true;
+                    System.out.println(getName() + "вырыл себе ямку в форме свего тела в гроте");
                     break outerCycle;
                 }
             }
@@ -66,17 +75,34 @@ public class Moomin implements AbleToSleep, AbleToDig {
         }
     }
 
+    public void playSong() {
+        System.out.printf(getName() + " играет %s песню\n", Math.random() < 0.5 ? "грустную" : "веселую");
+    }
+
+
     private boolean sleepingStatus = false;
+    private boolean lyingStatus = false;
+
+    public void setLyingStatus(boolean value) {
+        lyingStatus = value;
+    }
 
     @Override
     public void sleep() {
         sleepingStatus = true;
+        lyingStatus = true;
         System.out.println(getName() + (gender == Gender.MAN ? " уснул" : " уснула"));
+    }
+
+    public void lie() {
+        lyingStatus = true;
+        System.out.println(name + "лежит");
     }
 
     @Override
     public void getUp() {
         sleepingStatus = false;
+        lyingStatus = false;
         System.out.println(getName() + (gender == Gender.MAN ? " проснулся" : " проснулась"));
     }
 

@@ -82,9 +82,11 @@ public class Cockroach extends Insect implements AbleToFeelWeather, AbleToDig {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Cockroach fly = (Cockroach) obj;
-        return hashCode() == fly.hashCode() && Objects.equals(sizes.sizeX(), fly.sizes.sizeX())
-                && Objects.equals(sizes.sizeY(), fly.sizes.sizeY()) && Objects.equals(sizes.sizeZ(), fly.sizes.sizeZ());
+        Cockroach cockroach = (Cockroach) obj;
+        return hashCode() == cockroach.hashCode()
+                && Objects.equals(sizes.sizeX(), cockroach.sizes.sizeX())
+                && Objects.equals(sizes.sizeY(), cockroach.sizes.sizeY())
+                && Objects.equals(sizes.sizeZ(), cockroach.sizes.sizeZ());
     }
 
     @Override
