@@ -5,11 +5,9 @@ import exceptions.graphExceptions.AlreadyContainsVertexException;
 import exceptions.graphExceptions.FreePlaceNotFoundException;
 import humans.*;
 import locations.*;
-import org.w3c.dom.ls.LSOutput;
 import valeInhabitants.Moomin;
 import valeObjects.*;
 
-import java.sql.SQLOutput;
 
 public class StoryTeller {
     /**

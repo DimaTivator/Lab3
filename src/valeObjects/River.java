@@ -5,7 +5,7 @@ import enums.Weather;
 
 public class River extends ValeObject implements AbleToBeLiquid {
 
-    public Water water = new Water();
+    public final Water water = new Water();
 
     public River(double waterLevel) {
         water.changeLevel(waterLevel);
