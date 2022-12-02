@@ -8,6 +8,9 @@ import locations.*;
 import valeInhabitants.Moomin;
 import valeObjects.*;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 
 public class StoryTeller {
     /**
@@ -86,7 +89,20 @@ public class StoryTeller {
         Moomin fillyjonk = new Moomin("Филифьонка", Gender.WOMAN, 5, 1, 1);
         Moomin sniff = new Moomin("Снифф", Gender.MAN, 2, 1, 1);
 
-        Graph<Moomin> friendshipsGraph = new Graph<>();
+        Graph<Moomin> friendshipsGraph = new Graph<>() {
+            @Override
+            public String toString() {
+                StringBuilder stringGraph = new StringBuilder();
+
+                for (Map.Entry<Moomin, ArrayList<Moomin>> entry : getGraph().entrySet()) {
+                    stringGraph.append(entry.getKey()).append(" дружит с: \n");
+                    entry.getValue().forEach(value -> stringGraph.append(value).append("; "));
+                    stringGraph.append('\n');
+                }
+
+                return stringGraph.toString();
+            }
+        };
 
         try {
             friendshipsGraph.addVertex(snufkin);
