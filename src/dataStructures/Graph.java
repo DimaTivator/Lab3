@@ -1,6 +1,5 @@
 package dataStructures;
 
-import auxiliaryClasses.ConsoleColors;
 import exceptions.graphExceptions.*;
 
 import java.util.ArrayList;
@@ -25,8 +24,7 @@ public class Graph<T> {
      */
     public void addVertex(T vertex) throws AlreadyContainsVertexException {
         if (graph.containsKey(vertex)) {
-            throw new AlreadyContainsVertexException(ConsoleColors.RED +
-                    "Нельзя добавить в граф вершину, которая в нем уже есть!" + ConsoleColors.RESET);
+            throw new AlreadyContainsVertexException();
         }
 
         if (graph.isEmpty()) {
@@ -53,7 +51,7 @@ public class Graph<T> {
         if (graph.containsKey(vertex)) {
             graph.remove(vertex);
         } else {
-            throw new VertexNotFoundException(ConsoleColors.RED + "vertex not found!" + ConsoleColors.RESET);
+            throw new VertexNotFoundException();
         }
 
         for (Map.Entry<T, ArrayList<T>> entry : graph.entrySet()) {
@@ -78,7 +76,7 @@ public class Graph<T> {
 
             graph.put(vertex1, adjacencyListVertex1);
         } else {
-            throw new VertexNotFoundException(ConsoleColors.RED + "vertex1 not found!" + ConsoleColors.RESET);
+            throw new VertexNotFoundException();
         }
 
         if (graph.containsKey(vertex2)) {
@@ -86,7 +84,7 @@ public class Graph<T> {
             adjacencyListVertex2.add(vertex1);
             graph.put(vertex2, adjacencyListVertex2);
         } else {
-            throw new VertexNotFoundException(ConsoleColors.RED + "vertex2 not found!" + ConsoleColors.RESET);
+            throw new VertexNotFoundException();
         }
     }
 

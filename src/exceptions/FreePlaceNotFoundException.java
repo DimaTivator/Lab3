@@ -1,4 +1,4 @@
-package exceptions.graphExceptions;
+package exceptions;
 
 // checked exception
 public class FreePlaceNotFoundException extends Exception {

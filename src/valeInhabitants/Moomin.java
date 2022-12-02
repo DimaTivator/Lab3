@@ -5,7 +5,7 @@ import abilities.AbleToSleep;
 import dataStructures.Sizes;
 import enums.Gender;
 import exceptions.NotEnoughPlaceException;
-import exceptions.graphExceptions.FreePlaceNotFoundException;
+import exceptions.FreePlaceNotFoundException;
 import locations.Cave;
 
 import java.util.Objects;

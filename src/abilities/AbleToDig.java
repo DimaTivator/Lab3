@@ -1,6 +1,6 @@
 package abilities;
 
-import exceptions.graphExceptions.FreePlaceNotFoundException;
+import exceptions.FreePlaceNotFoundException;
 import locations.Cave;
 
 public interface AbleToDig {
