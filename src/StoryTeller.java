@@ -2,7 +2,7 @@ import auxiliaryClasses.ConsoleColors;
 import dataStructures.Graph;
 import enums.*;
 import exceptions.graphExceptions.AlreadyContainsVertexException;
-import exceptions.graphExceptions.FreePlaceNotFoundException;
+import exceptions.FreePlaceNotFoundException;
 import humans.*;
 import locations.*;
 import valeInhabitants.Moomin;
@@ -95,8 +95,11 @@ public class StoryTeller {
             friendshipsGraph.addVertex(fillyjonk);
             friendshipsGraph.addVertex(sniff);
             // adding this vertex to graph causes throwing AlreadyContainsVertexException
-            // friendshipsGraph.addVertex(sniff);
-        } catch (AlreadyContainsVertexException ignored) {}
+            friendshipsGraph.addVertex(sniff);
+        } catch (AlreadyContainsVertexException e) {
+            System.out.println(ConsoleColors.RED + "Нельзя добавить Мумми-тролля, который уже с кем-то дружит!" +
+                    ConsoleColors.RESET);
+        }
 
         friendshipsGraph.removeEdge(sniff, snork);
         System.out.printf("%s и %s поссорились\n", sniff.getName(), snork.getName());
@@ -120,6 +123,5 @@ public class StoryTeller {
 
         snufkin.playSong();
         snork.lie();
-
     }
 }
