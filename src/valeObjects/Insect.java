@@ -1,9 +1,10 @@
 package valeObjects;
 
 
+import abilities.AbleToFeelWeather;
 import dataStructures.Sizes;
 
-public abstract class Insect extends ValeObject {
+public abstract class Insect extends ValeObject implements AbleToFeelWeather {
 
     private double maxEnergyPointsValue = 100;
 

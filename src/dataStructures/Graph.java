@@ -120,6 +120,10 @@ public class Graph<T> {
         return stringGraph.toString();
     }
 
+
+    /**
+     * Method equals checks that both graphs have the same set of vertices and edges
+     */
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;

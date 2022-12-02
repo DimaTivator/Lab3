@@ -64,7 +64,7 @@ public class Moomin implements AbleToSleep, AbleToDig {
                         }
                     }
                     placeFound = true;
-                    System.out.println(getName() + "вырыл себе ямку в форме свего тела в гроте");
+                    System.out.println(getName() + " вырыл себе ямку в форме свего тела в гроте");
                     break outerCycle;
                 }
             }

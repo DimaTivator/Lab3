@@ -1,6 +1,7 @@
 package humans;
 
 import abilities.AbleToBePardoned;
+import abilities.AbleToBecomeJuice;
 import abilities.AbleToMakeJuice;
 import enums.Weather;
 import valeObjects.Hat;
@@ -14,9 +15,9 @@ public class Wizard extends Human implements AbleToMakeJuice {
         private double probability = 0;
 
         @Override
-        public void makeJuice(Water water) {
+        public void makeJuice(AbleToBecomeJuice object) {
             if (isPardoned) {
-                water.becomeJuice(probability);
+                object.becomeJuice(probability);
             } else {
                 System.out.println("Не помилованная шляпа не может превратить воду в сок :(");
             }
@@ -101,8 +102,8 @@ public class Wizard extends Human implements AbleToMakeJuice {
     }
 
     @Override
-    public void makeJuice(Water water) {
-        hat.makeJuice(water);
+    public void makeJuice(AbleToBecomeJuice object) {
+        hat.makeJuice(object);
     }
 
     @Override

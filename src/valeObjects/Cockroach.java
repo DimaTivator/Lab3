@@ -1,13 +1,12 @@
 package valeObjects;
 
 import abilities.AbleToDig;
-import abilities.AbleToFeelWeather;
 import enums.Weather;
 import locations.Cave;
 
 import java.util.Objects;
 
-public class Cockroach extends Insect implements AbleToFeelWeather, AbleToDig {
+public class Cockroach extends Insect implements AbleToDig {
 
     public Cockroach(double sizeX, double sizeY, double sizeZ) {
         sizes.setSizeX(sizeX);
@@ -70,6 +69,7 @@ public class Cockroach extends Insect implements AbleToFeelWeather, AbleToDig {
     @Override
     public void feelWeather(Weather weather) {
         System.out.println("Таракану любая погода нипочем");
+        makeSound();
     }
 
     @Override
